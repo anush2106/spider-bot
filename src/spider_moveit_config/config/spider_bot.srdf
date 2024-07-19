@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="spider_bot">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="hip_group">
+        <joint name="hip1"/>
+        <joint name="hip2"/>
+        <joint name="hip3"/>
+        <joint name="hip4"/>
+    </group>
+    <group name="leg_group">
+        <joint name="leg1"/>
+        <joint name="leg2"/>
+        <joint name="leg3"/>
+        <joint name="leg4"/>
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="zero_pose" group="hip_group">
+        <joint name="hip1" value="1.0227"/>
+        <joint name="hip2" value="-1.0227"/>
+        <joint name="hip3" value="0"/>
+        <joint name="hip4" value="0"/>
+    </group_state>
+    <group_state name="lift_pose" group="leg_group">
+        <joint name="leg1" value="0.628"/>
+        <joint name="leg2" value="0.628"/>
+        <joint name="leg3" value="0.628"/>
+        <joint name="leg4" value="0.628"/>
+    </group_state>
+    <group_state name="leg_2_4_lift" group="leg_group">
+        <joint name="leg1" value="0.628"/>
+        <joint name="leg2" value="0.1794"/>
+        <joint name="leg3" value="0.628"/>
+        <joint name="leg4" value="0.1794"/>
+    </group_state>
+    <group_state name="leg_1_3_lift" group="leg_group">
+        <joint name="leg1" value="0.1794"/>
+        <joint name="leg2" value="0.628"/>
+        <joint name="leg3" value="0.1794"/>
+        <joint name="leg4" value="0.628"/>
+    </group_state>
+    <group_state name="hip_2_4_forward" group="hip_group">
+        <joint name="hip1" value="1.3995"/>
+        <joint name="hip2" value="-1.0227"/>
+        <joint name="hip3" value="0.25"/>
+        <joint name="hip4" value="0"/>
+    </group_state>
+    <group_state name="hip_1_3_forward" group="hip_group">
+        <joint name="hip1" value="1.4713"/>
+        <joint name="hip2" value="-1.4534"/>
+        <joint name="hip3" value="0.25"/>
+        <joint name="hip4" value="0.323"/>
+    </group_state>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="base_link" link2="hip1_link" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="hip2_link" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="hip3_link" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="hip4_link" reason="Adjacent"/>
+    <disable_collisions link1="hip1_link" link2="hip2_link" reason="Never"/>
+    <disable_collisions link1="hip1_link" link2="hip3_link" reason="Never"/>
+    <disable_collisions link1="hip1_link" link2="hip4_link" reason="Never"/>
+    <disable_collisions link1="hip1_link" link2="leg1_link" reason="Adjacent"/>
+    <disable_collisions link1="hip1_link" link2="leg3_link" reason="Never"/>
+    <disable_collisions link1="hip1_link" link2="leg4_link" reason="Never"/>
+    <disable_collisions link1="hip2_link" link2="hip3_link" reason="Never"/>
+    <disable_collisions link1="hip2_link" link2="hip4_link" reason="Never"/>
+    <disable_collisions link1="hip2_link" link2="leg2_link" reason="Adjacent"/>
+    <disable_collisions link1="hip2_link" link2="leg3_link" reason="Never"/>
+    <disable_collisions link1="hip2_link" link2="leg4_link" reason="Never"/>
+    <disable_collisions link1="hip3_link" link2="hip4_link" reason="Never"/>
+    <disable_collisions link1="hip3_link" link2="leg1_link" reason="Never"/>
+    <disable_collisions link1="hip3_link" link2="leg2_link" reason="Never"/>
+    <disable_collisions link1="hip3_link" link2="leg3_link" reason="Adjacent"/>
+    <disable_collisions link1="hip4_link" link2="leg1_link" reason="Never"/>
+    <disable_collisions link1="hip4_link" link2="leg2_link" reason="Never"/>
+    <disable_collisions link1="hip4_link" link2="leg4_link" reason="Adjacent"/>
+    <disable_collisions link1="leg1_link" link2="leg3_link" reason="Never"/>
+    <disable_collisions link1="leg1_link" link2="leg4_link" reason="Never"/>
+    <disable_collisions link1="leg2_link" link2="leg3_link" reason="Never"/>
+    <disable_collisions link1="leg2_link" link2="leg4_link" reason="Never"/>
+</robot>

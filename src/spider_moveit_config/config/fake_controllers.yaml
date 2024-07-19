@@ -1,0 +1,20 @@
+controller_list:
+  - name: fake_hip_group_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - hip1
+      - hip2
+      - hip3
+      - hip4
+  - name: fake_leg_group_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - leg1
+      - leg2
+      - leg3
+      - leg4
+initial:  # Define initial robot poses per group
+  - group: hip_group
+    pose: zero_pose
+  - group: leg_group
+    pose: lift_pose

@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="spider_bot">
+
+  <link name="world"/>
+
+  <joint name="base_joint" type="fixed">
+	<parent link="world"/>
+	<child link="base_link"/>
+	<origin rpy="0 0 0" xyz="0.0 0.0 0.17"/>
+  </joint>  
+  
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="1.4664E-18 -0.01378 -1.6828E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.31125" />
+      <inertia
+        ixx="0.00053528"
+        ixy="5.6719E-22"
+        ixz="-4.8668E-20"
+        iyy="0.0017256"
+        iyz="6.0646E-22"
+        izz="0.0011916" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spider_bot/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spider_bot/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="hip1_link">
+    <inertial>
+      <origin
+        xyz="-0.019683 -0.0061033 0.005"
+        rpy="0 0 0" />
+      <mass
+        value="0.020238" />
+      <inertia
+        ixx="2.0599E-06"
+        ixy="-3.5219E-08"
+        ixz="-1.1746E-22"
+        iyy="2.0599E-06"
+        iyz="1.5882E-22"
+        izz="3.7856E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spider_bot/meshes/hip1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spider_bot/meshes/hip1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="hip1"
+    type="revolute">
+    <origin
+      xyz="0.1025 -0.065 0"
+      rpy="1.2442 -1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="hip1_link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="3" />
+  </joint>
+  <link
+    name="leg1_link">
+    <inertial>
+      <origin
+        xyz="-0.019147 0.043897 -0.0125"
+        rpy="0 0 0" />
+      <mass
+        value="0.0071825" />
+      <inertia
+        ixx="2.3125E-06"
+        ixy="1.4767E-06"
+        ixz="1.1779E-21"
+        iyy="2.3213E-06"
+        iyz="-2.0117E-21"
+        izz="4.6039E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spider_bot/meshes/leg1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spider_bot/meshes/leg1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leg1"
+    type="revolute">
+    <origin
+      xyz="-0.01358 0 0.01"
+      rpy="1.5708 0.11409 0" />
+    <parent
+      link="hip1_link" />
+    <child
+      link="leg1_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="3" />
+  </joint>
+  <link
+    name="hip2_link">
+    <inertial>
+      <origin
+        xyz="-0.0061033 -0.019683 -0.005"
+        rpy="0 0 0" />
+      <mass
+        value="0.020238" />
+      <inertia
+        ixx="2.0599E-06"
+        ixy="-3.5219E-08"
+        ixz="-5.8234E-22"
+        iyy="2.0599E-06"
+        iyz="9.3802E-22"
+        izz="3.7856E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spider_bot/meshes/hip2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spider_bot/meshes/hip2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="hip2"
+    type="revolute">
+    <origin
+      xyz="0.1025 0.065 0"
+      rpy="1.5708 0 0.27915" />
+    <parent
+      link="base_link" />
+    <child
+      link="hip2_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="3" />
+  </joint>
+  <link
+    name="leg2_link">
+    <inertial>
+      <origin
+        xyz="-0.019147 0.043897 -0.0125"
+        rpy="0 0 0" />
+      <mass
+        value="0.0071825" />
+      <inertia
+        ixx="2.3125E-06"
+        ixy="1.4767E-06"
+        ixz="-7.7424E-22"
+        iyy="2.3213E-06"
+        iyz="3.7058E-22"
+        izz="4.6039E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spider_bot/meshes/leg2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spider_bot/meshes/leg2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leg2"
+    type="revolute">
+    <origin
+      xyz="0 -0.01358 -0.01"
+      rpy="-1.5708 0.061399 1.5708" />
+    <parent
+      link="hip2_link" />
+    <child
+      link="leg2_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="3" />
+  </joint>
+  <link
+    name="hip3_link">
+    <inertial>
+      <origin
+        xyz="-0.0061033 -0.019683 -0.005"
+        rpy="0 0 0" />
+      <mass
+        value="0.020238" />
+      <inertia
+        ixx="2.0599E-06"
+        ixy="-3.5219E-08"
+        ixz="-1.1647E-21"
+        iyy="2.0599E-06"
+        iyz="3.1433E-22"
+        izz="3.7856E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spider_bot/meshes/hip3_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spider_bot/meshes/hip3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="hip3"
+    type="revolute">
+    <origin
+      xyz="-0.1025 0.065 0"
+      rpy="1.5708 0 0.69831" />
+    <parent
+      link="base_link" />
+    <child
+      link="hip3_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="3" />
+  </joint>
+  <link
+    name="leg3_link">
+    <inertial>
+      <origin
+        xyz="-0.019147 0.043897 -0.00043326"
+        rpy="0 0 0" />
+      <mass
+        value="0.0071825" />
+      <inertia
+        ixx="2.3125E-06"
+        ixy="1.4767E-06"
+        ixz="1.5882E-22"
+        iyy="2.3213E-06"
+        iyz="5.294E-23"
+        izz="4.6039E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spider_bot/meshes/leg3_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spider_bot/meshes/leg3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leg3"
+    type="revolute">
+    <origin
+      xyz="0.012067 -0.01358 -0.01"
+      rpy="-1.5708 -0.3205 1.5708" />
+    <parent
+      link="hip3_link" />
+    <child
+      link="leg3_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="3" />
+  </joint>
+  <link
+    name="hip4_link">
+    <inertial>
+      <origin
+        xyz="-0.0061334 -0.019683 -0.004963"
+        rpy="0 0 0" />
+      <mass
+        value="0.020238" />
+      <inertia
+        ixx="2.06E-06"
+        ixy="-3.5218E-08"
+        ixz="1.045E-08"
+        iyy="2.0599E-06"
+        iyz="2.1327E-10"
+        izz="3.7855E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spider_bot/meshes/hip4_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spider_bot/meshes/hip4_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="hip4"
+    type="revolute">
+    <origin
+      xyz="-0.1025 -0.065 0"
+      rpy="1.5708 0 2.4479" />
+    <parent
+      link="base_link" />
+    <child
+      link="hip4_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="3" />
+  </joint>
+  <link
+    name="leg4_link">
+    <inertial>
+      <origin
+        xyz="-0.019147 0.043897 -0.041147"
+        rpy="0 0 0" />
+      <mass
+        value="0.0071825" />
+      <inertia
+        ixx="2.3125E-06"
+        ixy="1.4767E-06"
+        ixz="6.6174E-22"
+        iyy="2.3213E-06"
+        iyz="-9.5291E-22"
+        izz="4.6039E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spider_bot/meshes/leg4_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spider_bot/meshes/leg4_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leg4"
+    type="revolute">
+    <origin
+      xyz="-0.028647 -0.01358 -0.01"
+      rpy="-1.5708 -0.13243 1.5708" />
+    <parent
+      link="hip4_link" />
+    <child
+      link="leg4_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="3" />
+  </joint>
+  <transmission name="hip1_link_trans">
+	<type>transmission_interface/SimpleTransmission</type>
+	<joint name="hip1">
+	<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	</joint>
+	<actuator name="hip1_link_motor">
+	<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		<mechanicalReduction>1</mechanicalReduction>
+	</actuator>
+  </transmission>
+  <transmission name="leg1_link_trans">
+	<type>transmission_interface/SimpleTransmission</type>
+	<joint name="leg1">
+	<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	</joint>
+	<actuator name="leg1_link_motor">
+	<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		<mechanicalReduction>1</mechanicalReduction>
+	</actuator>
+  </transmission>
+  <transmission name="hip2_link_trans">
+	<type>transmission_interface/SimpleTransmission</type>
+	<joint name="hip2">
+	<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	</joint>
+	<actuator name="hip2_link_motor">
+	<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		<mechanicalReduction>1</mechanicalReduction>
+	</actuator>
+  </transmission>
+  <transmission name="leg2_link_trans">
+	<type>transmission_interface/SimpleTransmission</type>
+	<joint name="leg2">
+	<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	</joint>
+	<actuator name="leg2_link_motor">
+	<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		<mechanicalReduction>1</mechanicalReduction>
+	</actuator>
+  </transmission>
+  <transmission name="hip3_link_trans">
+	<type>transmission_interface/SimpleTransmission</type>
+	<joint name="hip3">
+	<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	</joint>
+	<actuator name="hip3_link_motor">
+	<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		<mechanicalReduction>1</mechanicalReduction>
+	</actuator>
+  </transmission>
+  <transmission name="leg3_link_trans">
+	<type>transmission_interface/SimpleTransmission</type>
+	<joint name="leg3">
+	<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	</joint>
+	<actuator name="leg3_link_motor">
+	<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		<mechanicalReduction>1</mechanicalReduction>
+	</actuator>
+  </transmission>
+  <transmission name="hip4_link_trans">
+	<type>transmission_interface/SimpleTransmission</type>
+	<joint name="hip4">
+	<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	</joint>
+	<actuator name="hip4_link_motor">
+	<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		<mechanicalReduction>1</mechanicalReduction>
+	</actuator>
+  </transmission>
+  <transmission name="leg4_link_trans">
+	<type>transmission_interface/SimpleTransmission</type>
+	<joint name="leg4">
+	<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	</joint>
+	<actuator name="leg4_link_motor">
+	<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		<mechanicalReduction>1</mechanicalReduction>
+	</actuator>
+  </transmission>
+  
+  <gazebo>
+	<plugin name="control" filename="libgazebo_ros_control.so">
+		<robotNamespace>/</robotNamespace>
+	</plugin>
+  </gazebo>
+  
+  <gazebo reference="hip1_link">
+	<selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="leg1_link">
+	<selfCollide>true</selfCollide>
+  </gazebo>   
+  <gazebo reference="hip2_link">
+	<selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="leg2_link">
+	<selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="hip3_link">
+	<selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="leg3_link">
+	<selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="hip4_link">
+	<selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="leg4_link">
+	<selfCollide>true</selfCollide>
+  </gazebo>
+
+</robot>
